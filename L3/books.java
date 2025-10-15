@@ -73,7 +73,8 @@ class BookController {
     public void start() {
         Scanner scanner = new Scanner(System.in);
         view.printBooks(books); 
-        while (true) {
+        boolean running = true;
+        while (running) {
             view.printMenu();
             int choice = scanner.nextInt();
             scanner.nextLine(); 
@@ -101,7 +102,8 @@ class BookController {
                     break;
                 case 0:
                     System.out.println("Exiting...");
-                    return;
+                    running = false;
+                    break;
                 default:
                     System.out.println("Invalid choice. Try again.");
             }
