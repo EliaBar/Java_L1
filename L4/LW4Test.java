@@ -3,7 +3,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class LW4Test {
 
-    // ✅ 1. Перевірка звичайного заповнення
     @Test
     public void testNormalBoarding() throws Exception {
         Bus bus = new Bus(3);
@@ -12,7 +11,6 @@ public class LW4Test {
         assertEquals(2, bus.getOccupiedSeats());
     }
 
-    // ✅ 2. Перевірка обмеження місць
     @Test
     public void testOverCapacityThrowsException() {
         Taxi taxi = new Taxi(1);
@@ -22,17 +20,13 @@ public class LW4Test {
         });
     }
 
-    // ✅ 3. Перевірка типів пасажирів
     @Test
     public void testTypeRestriction() throws Exception {
         FireTruck fireTruck = new FireTruck(2);
         fireTruck.boardPassenger(new Firefighter("John"));
-        // ❌ Наступний рядок не скомпілюється, якщо розкоментувати:
-        // fireTruck.boardPassenger(new Policeman("Bob"));
         assertEquals(1, fireTruck.getOccupiedSeats());
     }
 
-    // ✅ 4. Перевірка винятку при видаленні неіснуючого пасажира
     @Test
     public void testRemoveNonexistentPassenger() throws Exception {
         Bus bus = new Bus(2);
@@ -42,7 +36,6 @@ public class LW4Test {
         assertThrows(Exception.class, () -> bus.removePassenger(tom));
     }
 
-    // ✅ 5. Перевірка підрахунку пасажирів на дорозі
     @Test
     public void testCountHumansOnRoad() throws Exception {
         Road road = new Road();
